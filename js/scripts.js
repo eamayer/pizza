@@ -19,7 +19,7 @@ Ticket.prototype.price = function() {
     if (this.pizzaToppings.length === 0) {
       price
     } else {
-      price += this.pizzaToppings.legth
+      price += this.pizzaToppings.length
     }
 
   return price
