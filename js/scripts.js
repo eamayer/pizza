@@ -38,13 +38,13 @@ $(document).ready(function() {
     var pizzaOrder = $("select#pizza-size").val();
     var newPizza = new Pizza(pizzaOrder)
 
-    .forEach($("input[name='toppings']:checked"), function() {
+    $.each($("input[name='toppings']:checked"), function() {
      newPizza.pizzaToppings.push($(this).val());
    });
 
 
 
-    $("#show-price").show();
+    $("#pizza-final").show();
     $("ul#ticketInCart").append("<li>" + "$" + ticketPrice + "</li>");
 
   });
