@@ -7,16 +7,16 @@ function Pizza(size) {
 // Pizza Prototypes
 
 Pizza.prototype.pizzaPrice = function() {
-var price = 20;
-
-  if (this.pizzaSize === "large") {
-    price += 10;
-  } else if (this.pizzaSize === "medium") {
-    price += 5;
-  } else {
-   price += 0;
-  }
-return price };
+  var price = 20;
+    if (this.pizzaSize === "large") {
+      price += 10;
+    } else if (this.pizzaSize === "medium") {
+      price += 5;
+    } else {
+     price += 0;
+    }
+    return price
+  };
 
 Pizza.prototype.toppingsCost = function () {
   return this.pizzaToppings.length
