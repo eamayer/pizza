@@ -2,50 +2,47 @@
 function Pizza(size) {
   this.pizzaSize = size;
   this.pizzaToppings = [];
-}
-
-// Pizza Prototypes
-Ticket.prototype.price = function() {
-    var price = 20;
-
-    if (this.pizzaSize === "large") {
-      price += 10;
-    } else if (this.pizzaSize === "medium") {
-      price += 5;
-    } else {
-      price
-    }
-
-    if (this.pizzaToppings.length === 0) {
-      price
-    } else {
-      price += this.pizzaToppings.length
-    }
-
-  return price
-
 };
 
+// Pizza Prototypes
+
+Pizza.prototype.pizzaPrice = function() {
+var price = 20;
+
+  if (this.pizzaSize === "large") {
+    price += 10;
+  } else if (this.pizzaSize === "medium") {
+    price += 5;
+  } else {
+   price += 0;
+  }
+return price };
+
+Pizza.prototype.toppingsCost = function () {
+  return this.pizzaToppings.length
+}
 
 
 // User Interface Logic ---------
 
 
 $(document).ready(function() {
-  var totalPrice = 0;
+
   $("form#pizza-order").submit(function(event) {
+    $("ul#pizza-cost").empty();
     event.preventDefault();
-    var pizzaOrder = $("select#pizza-size").val();
-    var newPizza = new Pizza(pizzaOrder)
 
-    $.each($("input[name='toppings']:checked"), function() {
+    var pizza = $("select#pizza-size").val();
+    var newPizza = new Pizza(pizza);
+
+    $("input[name='toppings']:checked").each(function() {
      newPizza.pizzaToppings.push($(this).val());
-   });
+    });
 
-
+    var finalPrice = (newPizza.pizzaPrice() + newPizza.toppingsCost())
 
     $("#pizza-final").show();
-    $("ul#ticketInCart").append("<li>" + "$" + ticketPrice + "</li>");
+    $("ul#pizza-cost").append("<li>" + "$" + finalPrice + "</li>");
 
   });
 })
