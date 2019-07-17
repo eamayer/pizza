@@ -16,13 +16,17 @@ The program will handle
 - example input : small
 - example output: small pizza
 
-2.) the pizza price
-- example input: small pizza with sausage
+2.) the pizza price based on size
+- example input: small
 - example output: $30
 
-3.) Zero or more pizza toppings can be chose
-- example input: sausage, onion 
-- example output: toppings: 2
+3.) the toppings cost based on number
+- example input: sausage, onion
+- example output: $2
+
+4.) the total price based on size and toppings
+- example input: small pizza with sausage and onion
+- example output: $32
 
 
 ##Setup/Installation Requirements
